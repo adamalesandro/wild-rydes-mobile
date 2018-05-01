@@ -14,6 +14,9 @@
  */
 import SignIn from './SignIn';
 import SignUp from './SignUp';
+import Amplify from 'aws-amplify';
+
+const isAuthenticated = () => Amplify.Auth.user !== null;
 
 export {
     SignIn,
