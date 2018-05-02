@@ -46,8 +46,14 @@ class MainApp extends React.Component {
    * @param {Number} latitude
    * @param {Number} longitude
    */
-  async getData(pin) {
-    throw new Error('Request a Ride is not implemented');
+   async getData(pin) {
+     const body = {
+       PickupLocation: {
+         Longitude: pin.longitude,
+         Latitude: pin.latitude
+       }
+     };
+     return await API.post(apiName, apiPath, { body });
   }
 
   /**
@@ -56,9 +62,9 @@ class MainApp extends React.Component {
    * @return {Boolean} true if API is configured
    */
   hasApi() {
-    // const api = awsConfig.aws_cloud_logic_custom
-    //   .filter(v => v.name === 'requestUnicorn');
-    // return (typeof api !== 'undefined');
+    const api = awsConfig.aws_cloud_logic_custom
+      .filter(v => v.name === 'requestUnicorn');
+    return (typeof api !== 'undefined');
   }
 
   /**

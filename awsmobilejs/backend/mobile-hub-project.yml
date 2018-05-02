@@ -1,5 +1,39 @@
 --- !com.amazonaws.mobilehub.v0.Project 
 features:
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
+    components:
+      requestUnicorn: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: requestUnicorn
+          requires-signin: false
+          sdk-generation-stage-name: Development
+        paths:
+          /ride: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/requestUnicorn-20180501160635.zip
+            description: 'Handler for calls to resource path : /ride/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: XI2fjhChZqeDPA16elyoa7rkjGodij9QwmSCSgqxyQ8=
+            memorySize: '128'
+            modified: '2018-05-01T20:07:55.207+0000'
+            name: requestUnicorn
+            runtime: nodejs6.10
+            timeout: '3'
+            version: XlSBUnpHX5pnTBMVDq8qI2zZfLnm9GNL
+          '/ride/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/requestUnicorn-20180501160635.zip
+            description: 'Handler for calls to resource path : /ride/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: XI2fjhChZqeDPA16elyoa7rkjGodij9QwmSCSgqxyQ8=
+            memorySize: '128'
+            modified: '2018-05-01T20:07:55.207+0000'
+            name: requestUnicorn
+            runtime: nodejs6.10
+            timeout: '3'
+            version: Gy5RsG9iDdeI8RCjU9buHkxiDTyKIJLO
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
