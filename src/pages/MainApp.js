@@ -46,9 +46,15 @@ class MainApp extends React.Component {
    * @param {Number} latitude
    * @param {Number} longitude
    */
-  async getData(pin) {
-    throw new Error('Request a Ride is not implemented');
-  }
+   async getData(pin) {
+     const body = {
+       PickupLocation: {
+         Longitude: pin.longitude,
+         Latitude: pin.latitude
+       }
+     };
+     return await API.post(apiName, apiPath, { body });
+   }
 
   /**
    * Determines if the API is enabled

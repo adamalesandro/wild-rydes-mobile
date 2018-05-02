@@ -17,10 +17,14 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Home, FAQ, Investors, MainApp, Unicorns } from './pages';
 import { SignIn, SignUp } from './auth';
+import Amplify from 'aws-amplify';
+import awsConfig from './aws-exports';
 
 import 'normalize.css';
 
-const isAuthenticated = () => false; 
+Amplify.configure(awsConfig);
+
+const isAuthenticated = () => Amplify.Auth.user !== null;
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
